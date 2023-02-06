@@ -17,7 +17,11 @@ export class ActorsService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} actor`;
+    return this.actorRepo.findOne({
+      where: {
+        id,
+      },
+    });
   }
 
   update(id: number, updateActorInput: UpdateActorInput) {
