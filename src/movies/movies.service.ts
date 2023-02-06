@@ -56,7 +56,12 @@ export class MoviesService {
     return 'Movie updated successfully';
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} movie`;
+  async remove(id: number): Promise<string> {
+    await this.movieRepo.destroy({
+      where: {
+        id,
+      },
+    });
+    return 'Movie deleted successfully';
   }
 }
