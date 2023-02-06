@@ -1,15 +1,19 @@
 import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/sequelize';
 import { CreateMovieInput } from './dto/create-movie.input';
 import { UpdateMovieInput } from './dto/update-movie.input';
+import { Movie } from './movies.model';
 
 @Injectable()
 export class MoviesService {
+  constructor(@InjectModel(Movie) private movieRepo: typeof Movie) {}
+
   create(createMovieInput: CreateMovieInput) {
     return 'This action adds a new movie';
   }
 
   findAll() {
-    return `This action returns all movies`;
+    return this.movieRepo.findAll();
   }
 
   findOne(id: number) {
