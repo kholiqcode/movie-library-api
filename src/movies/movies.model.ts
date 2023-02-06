@@ -10,7 +10,7 @@ import {
 
 @Table({ tableName: 'orders' })
 @ObjectType()
-export class Order extends Model {
+export class Movie extends Model {
   @PrimaryKey
   @AutoIncrement
   @Column
