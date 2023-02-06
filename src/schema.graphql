@@ -2,6 +2,16 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Actor {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input CreateActorInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
 input CreateMovieInput {
   """Example field (placeholder)"""
   exampleField: Int!
@@ -13,14 +23,25 @@ type Movie {
 }
 
 type Mutation {
+  createActor(createActorInput: CreateActorInput!): Actor!
   createMovie(createMovieInput: CreateMovieInput!): Movie!
+  removeActor(id: Int!): Actor!
   removeMovie(id: Int!): Movie!
+  updateActor(updateActorInput: UpdateActorInput!): Actor!
   updateMovie(updateMovieInput: UpdateMovieInput!): Movie!
 }
 
 type Query {
+  actor(id: Int!): Actor!
+  actors: [Actor!]!
   movie(id: Int!): Movie!
   movies: [Movie!]!
+}
+
+input UpdateActorInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
 }
 
 input UpdateMovieInput {

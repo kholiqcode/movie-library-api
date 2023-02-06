@@ -5,6 +5,7 @@ import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MoviesModule } from './movies/movies.module';
+import { ActorsModule } from './actors/actors.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { MoviesModule } from './movies/movies.module';
       sortSchema: true,
     }),
     MoviesModule,
+    ActorsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
