@@ -9,6 +9,7 @@ import { ActorsModule } from './actors/actors.module';
 import { AuthorsModule } from './authors/authors.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
+import { MovieDetailModule } from './movie-detail/movie-detail.module';
 
 @Module({
   imports: [
@@ -39,6 +40,7 @@ import { SequelizeModule } from '@nestjs/sequelize';
     MoviesModule,
     ActorsModule,
     AuthorsModule,
+    MovieDetailModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,12 +1,19 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
 import {
   AutoIncrement,
+  BelongsTo,
   Column,
   DataType,
+  ForeignKey,
+  HasMany,
+  HasOne,
   Model,
   PrimaryKey,
   Table,
 } from 'sequelize-typescript';
+import { Actor } from 'src/actors/actors.model';
+import { Author } from 'src/authors/authors.model';
+import { MovieDetail } from 'src/movie-detail/movie-detail.model';
 
 @Table({ tableName: 'orders' })
 @ObjectType()
@@ -64,4 +71,16 @@ export class Movie extends Model {
   @Column(DataType.DATE)
   @Field(() => String)
   updatedAt: string;
+
+  @Column
+  @ForeignKey(() => Author)
+  @Field(() => Int, { nullable: true })
+  authorId: number;
+
+  @BelongsTo(() => Author)
+  author: Author;
+
+  @HasMany(() => MovieDetail)
+  @Field(() => [MovieDetail], { nullable: true })
+  details: MovieDetail[];
 }

@@ -1,6 +1,6 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { ActorsService } from './actors.service';
-import { Actor } from './entities/actor.entity';
+import { Actor } from './actors.model';
 import { CreateActorInput } from './dto/create-actor.input';
 import { UpdateActorInput } from './dto/update-actor.input';
 

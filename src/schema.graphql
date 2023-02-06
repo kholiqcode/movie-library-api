@@ -3,14 +3,19 @@
 # ------------------------------------------------------
 
 type Actor {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  birthDate: String!
+  createdAt: String!
+  id: Int!
+  movies: MovieDetail
+  name: String!
+  updatedAt: String!
 }
 
 type Author {
   birthDate: String!
   createdAt: String!
   id: Int!
+  movies: Movie
   name: String!
   updatedAt: String!
 }
@@ -31,8 +36,10 @@ input CreateMovieInput {
 }
 
 type Movie {
+  authorId: Int
   country: String!
   createdAt: String!
+  details: [MovieDetail!]
   director: String!
   genre: String!
   id: Int!
@@ -44,6 +51,13 @@ type Movie {
   updatedAt: String!
   votes: String!
   year: Int!
+}
+
+type MovieDetail {
+  actor: Actor!
+  actorId: Int
+  id: Int!
+  movieId: Int
 }
 
 type Mutation {

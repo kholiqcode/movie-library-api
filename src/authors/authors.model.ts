@@ -3,10 +3,12 @@ import {
   AutoIncrement,
   Column,
   DataType,
+  HasMany,
   Model,
   PrimaryKey,
   Table,
 } from 'sequelize-typescript';
+import { Movie } from 'src/movies/movies.model';
 
 @Table({ tableName: 'authors' })
 @ObjectType()
@@ -32,4 +34,8 @@ export class Author extends Model {
   @Column(DataType.DATE)
   @Field(() => String)
   updatedAt: string;
+
+  @HasMany(() => Movie)
+  @Field(() => Movie, { nullable: true })
+  movies: Movie;
 }

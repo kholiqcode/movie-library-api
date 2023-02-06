@@ -4,10 +4,13 @@ import {
   AutoIncrement,
   Column,
   DataType,
+  HasMany,
   Model,
   PrimaryKey,
   Table,
 } from 'sequelize-typescript';
+import { MovieDetail } from 'src/movie-detail/movie-detail.model';
+import { Movie } from 'src/movies/movies.model';
 
 @Table({ tableName: 'actors' })
 @ObjectType()
@@ -39,4 +42,8 @@ export class Actor extends Model {
   })
   @Field(() => String)
   updatedAt: string;
+
+  @HasMany(() => MovieDetail)
+  @Field(() => MovieDetail, { nullable: true })
+  movies: MovieDetail;
 }
