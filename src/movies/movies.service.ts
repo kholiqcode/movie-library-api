@@ -8,8 +8,21 @@ import { Movie } from './movies.model';
 export class MoviesService {
   constructor(@InjectModel(Movie) private movieRepo: typeof Movie) {}
 
-  create(createMovieInput: CreateMovieInput) {
-    return 'This action adds a new movie';
+  async create(createMovieInput: CreateMovieInput) {
+    const movie: Movie = new Movie();
+    movie.title = createMovieInput.title;
+    movie.year = createMovieInput.year;
+    movie.genre = createMovieInput.genre.join(', ');
+    movie.director = createMovieInput.director;
+    movie.runtime = createMovieInput.runtime;
+    movie.country = createMovieInput.country;
+    movie.rating = createMovieInput.rating;
+    movie.votes = createMovieInput.votes;
+    movie.sub = createMovieInput.sub;
+    movie.quality = createMovieInput.quality;
+    movie.authorId = createMovieInput.authorId;
+    await movie.save();
+    return 'Movie created successfully';
   }
 
   async findAll(): Promise<Movie[]> {

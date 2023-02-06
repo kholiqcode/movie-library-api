@@ -13,7 +13,7 @@ import {
 import { Author } from 'src/authors/authors.model';
 import { MovieDetail } from 'src/movie-detail/movie-detail.model';
 
-@Table({ tableName: 'orders' })
+@Table({ tableName: 'movies' })
 @ObjectType()
 export class Movie extends Model {
   @PrimaryKey

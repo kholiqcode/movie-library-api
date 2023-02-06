@@ -8,7 +8,7 @@ import { UpdateMovieInput } from './dto/update-movie.input';
 export class MoviesResolver {
   constructor(private readonly moviesService: MoviesService) {}
 
-  @Mutation(() => Movie)
+  @Mutation(() => String)
   createMovie(@Args('createMovieInput') createMovieInput: CreateMovieInput) {
     return this.moviesService.create(createMovieInput);
   }
