@@ -16,8 +16,8 @@ export class AuthorsService {
     return 'Author created successfully';
   }
 
-  findAll() {
-    return `This action returns all authors`;
+  findAll(): Promise<Author[]> {
+    return this.auhtorRepo.findAll();
   }
 
   findOne(id: number) {
