@@ -3,6 +3,6 @@ import { ActorsService } from './actors.service';
 import { ActorsResolver } from './actors.resolver';
 
 @Module({
-  providers: [ActorsResolver, ActorsService]
+  providers: [ActorsResolver, ActorsService],
 })
 export class ActorsModule {}
