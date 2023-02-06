@@ -65,7 +65,7 @@ type Mutation {
   createAuthor(createAuthorInput: CreateAuthorInput!): String!
   createMovie(createMovieInput: CreateMovieInput!): Movie!
   removeActor(id: Int!): String!
-  removeAuthor(id: Int!): Author!
+  removeAuthor(id: Int!): String!
   removeMovie(id: Int!): Movie!
   updateActor(updateActorInput: UpdateActorInput!): String!
   updateAuthor(updateAuthorInput: UpdateAuthorInput!): String!

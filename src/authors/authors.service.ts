@@ -41,7 +41,12 @@ export class AuthorsService {
     return 'Author updated successfully';
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} author`;
+  async remove(id: number): Promise<string> {
+    await this.authorRepo.destroy({
+      where: {
+        id,
+      },
+    });
+    return 'Author removed successfully';
   }
 }
