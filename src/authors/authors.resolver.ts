@@ -25,7 +25,7 @@ export class AuthorsResolver {
     return this.authorsService.findOne(id);
   }
 
-  @Mutation(() => Author)
+  @Mutation(() => String)
   updateAuthor(
     @Args('updateAuthorInput') updateAuthorInput: UpdateAuthorInput,
   ) {

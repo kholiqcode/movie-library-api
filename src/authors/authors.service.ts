@@ -28,8 +28,17 @@ export class AuthorsService {
     });
   }
 
-  update(id: number, updateAuthorInput: UpdateAuthorInput) {
-    return `This action updates a #${id} author`;
+  async update(
+    id: number,
+    updateAuthorInput: UpdateAuthorInput,
+  ): Promise<string> {
+    const author: Author = await this.authorRepo.findOne({
+      where: { id },
+    });
+    author.name = updateAuthorInput.name;
+    author.birthDate = updateAuthorInput.birthDate;
+    await author.save();
+    return 'Author updated successfully';
   }
 
   remove(id: number) {
