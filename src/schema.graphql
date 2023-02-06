@@ -11,7 +11,7 @@ type Author {
   birthDate: String!
   createdAt: String!
   id: Int!
-  title: String!
+  name: String!
   updatedAt: String!
 }
 

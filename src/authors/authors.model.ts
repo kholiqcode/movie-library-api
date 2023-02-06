@@ -19,7 +19,7 @@ export class Author extends Model {
 
   @Column
   @Field(() => String)
-  title: string;
+  name: string;
 
   @Column(DataType.DATEONLY)
   @Field(() => String)
