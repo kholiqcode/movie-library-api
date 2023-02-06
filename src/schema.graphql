@@ -21,8 +21,8 @@ type Author {
 }
 
 input CreateActorInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  birthDate: String
+  name: String!
 }
 
 input CreateAuthorInput {
@@ -82,9 +82,9 @@ type Query {
 }
 
 input UpdateActorInput {
-  """Example field (placeholder)"""
-  exampleField: Int
+  birthDate: String
   id: Int!
+  name: String
 }
 
 input UpdateAuthorInput {

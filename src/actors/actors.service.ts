@@ -9,7 +9,10 @@ export class ActorsService {
   constructor(@InjectModel(Actor) private actorRepo: typeof Actor) {}
 
   create(createActorInput: CreateActorInput) {
-    return 'This action adds a new actor';
+    const actor: Actor = new Actor();
+    actor.name = createActorInput.name;
+    actor.birthDate = createActorInput.birthDate;
+    return actor.save();
   }
 
   findAll(): Promise<Actor[]> {
