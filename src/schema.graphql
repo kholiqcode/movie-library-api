@@ -7,7 +7,17 @@ type Actor {
   exampleField: Int!
 }
 
+type Author {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
 input CreateActorInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input CreateAuthorInput {
   """Example field (placeholder)"""
   exampleField: Int!
 }
@@ -24,21 +34,32 @@ type Movie {
 
 type Mutation {
   createActor(createActorInput: CreateActorInput!): Actor!
+  createAuthor(createAuthorInput: CreateAuthorInput!): Author!
   createMovie(createMovieInput: CreateMovieInput!): Movie!
   removeActor(id: Int!): Actor!
+  removeAuthor(id: Int!): Author!
   removeMovie(id: Int!): Movie!
   updateActor(updateActorInput: UpdateActorInput!): Actor!
+  updateAuthor(updateAuthorInput: UpdateAuthorInput!): Author!
   updateMovie(updateMovieInput: UpdateMovieInput!): Movie!
 }
 
 type Query {
   actor(id: Int!): Actor!
   actors: [Actor!]!
+  author(id: Int!): Author!
+  authors: [Author!]!
   movie(id: Int!): Movie!
   movies: [Movie!]!
 }
 
 input UpdateActorInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
+
+input UpdateAuthorInput {
   """Example field (placeholder)"""
   exampleField: Int
   id: Int!
