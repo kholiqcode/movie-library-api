@@ -7,7 +7,8 @@ import { AppService } from './app.service';
 import { MoviesModule } from './movies/movies.module';
 import { ActorsModule } from './actors/actors.module';
 import { AuthorsModule } from './authors/authors.module';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { SequelizeModule } from '@nestjs/sequelize';
 
 @Module({
   imports: [
@@ -17,6 +18,23 @@ import { ConfigModule } from '@nestjs/config';
       playground: true,
       autoSchemaFile: join(process.cwd(), 'src/schema.graphql'),
       sortSchema: true,
+    }),
+    SequelizeModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: (configService: ConfigService) => ({
+        dialect: configService.get('DB_DATAB'),
+        host: configService.get('DB_HOST'),
+        port: +configService.get<number>('DB_PORT'),
+        username: configService.get('DB_USERNAME'),
+        password: configService.get('DB_PASSWORD'),
+        database: configService.get('DB_NAME'),
+        // entities:[__dirname + '/**/*.entity{.ts,.js}'],
+        autoLoadModels: true,
+        sync: {
+          force: true,
+        },
+      }),
+      inject: [ConfigService],
     }),
     MoviesModule,
     ActorsModule,
