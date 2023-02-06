@@ -2,6 +2,7 @@ import { Field, Int, ObjectType } from '@nestjs/graphql';
 import {
   AutoIncrement,
   Column,
+  DataType,
   Model,
   PrimaryKey,
   Table,
@@ -56,11 +57,11 @@ export class Order extends Model {
   @Field(() => String)
   quality: string;
 
-  @Column
-  @Field(() => String, { nullable: true })
+  @Column(DataType.DATE)
+  @Field(() => String)
   createdAt: string;
 
-  @Column
+  @Column(DataType.DATE)
   @Field(() => String)
   updatedAt: string;
 }
