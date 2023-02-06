@@ -27,8 +27,13 @@ export class ActorsService {
     });
   }
 
-  update(id: number, updateActorInput: UpdateActorInput) {
-    return `This action updates a #${id} actor`;
+  async update(id: number, updateActorInput: UpdateActorInput): Promise<Actor> {
+    const actor: Actor = await this.actorRepo.findOne({
+      where: { id },
+    });
+    actor.name = updateActorInput.name;
+    actor.birthDate = updateActorInput.birthDate;
+    return await actor.save();
   }
 
   remove(id: number) {
