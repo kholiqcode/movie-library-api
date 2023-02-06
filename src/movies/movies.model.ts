@@ -6,12 +6,10 @@ import {
   DataType,
   ForeignKey,
   HasMany,
-  HasOne,
   Model,
   PrimaryKey,
   Table,
 } from 'sequelize-typescript';
-import { Actor } from 'src/actors/actors.model';
 import { Author } from 'src/authors/authors.model';
 import { MovieDetail } from 'src/movie-detail/movie-detail.model';
 

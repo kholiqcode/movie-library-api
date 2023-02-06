@@ -12,12 +12,16 @@ export class MoviesService {
     return 'This action adds a new movie';
   }
 
-  findAll() {
-    return this.movieRepo.findAll();
+  async findAll(): Promise<Movie[]> {
+    return await this.movieRepo.findAll();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} movie`;
+  async findOne(id: number): Promise<Movie> {
+    return await this.movieRepo.findOne({
+      where: {
+        id,
+      },
+    });
   }
 
   update(id: number, updateMovieInput: UpdateMovieInput) {
