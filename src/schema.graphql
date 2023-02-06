@@ -1,0 +1,30 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateMovieInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type Movie {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type Mutation {
+  createMovie(createMovieInput: CreateMovieInput!): Movie!
+  removeMovie(id: Int!): Movie!
+  updateMovie(updateMovieInput: UpdateMovieInput!): Movie!
+}
+
+type Query {
+  movie(id: Int!): Movie!
+  movies: [Movie!]!
+}
+
+input UpdateMovieInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
