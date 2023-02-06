@@ -8,7 +8,7 @@ import { UpdateAuthorInput } from './dto/update-author.input';
 export class AuthorsResolver {
   constructor(private readonly authorsService: AuthorsService) {}
 
-  @Mutation(() => Author)
+  @Mutation(() => String)
   createAuthor(
     @Args('createAuthorInput') createAuthorInput: CreateAuthorInput,
   ) {

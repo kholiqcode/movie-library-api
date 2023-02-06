@@ -26,8 +26,8 @@ input CreateActorInput {
 }
 
 input CreateAuthorInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  birthDate: String
+  name: String!
 }
 
 input CreateMovieInput {
@@ -62,7 +62,7 @@ type MovieDetail {
 
 type Mutation {
   createActor(createActorInput: CreateActorInput!): String!
-  createAuthor(createAuthorInput: CreateAuthorInput!): Author!
+  createAuthor(createAuthorInput: CreateAuthorInput!): String!
   createMovie(createMovieInput: CreateMovieInput!): Movie!
   removeActor(id: Int!): String!
   removeAuthor(id: Int!): Author!
@@ -88,9 +88,9 @@ input UpdateActorInput {
 }
 
 input UpdateAuthorInput {
-  """Example field (placeholder)"""
-  exampleField: Int
+  birthDate: String
   id: Int!
+  name: String
 }
 
 input UpdateMovieInput {
