@@ -5,8 +5,10 @@ import {
   DataType,
   Model,
   PrimaryKey,
+  Table,
 } from 'sequelize-typescript';
 
+@Table({ tableName: 'authors' })
 @ObjectType()
 export class Author extends Model {
   @PrimaryKey
