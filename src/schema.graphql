@@ -78,7 +78,7 @@ type Mutation {
   removeMovie(id: Int!): Movie!
   updateActor(updateActorInput: UpdateActorInput!): String!
   updateAuthor(updateAuthorInput: UpdateAuthorInput!): String!
-  updateMovie(updateMovieInput: UpdateMovieInput!): Movie!
+  updateMovie(updateMovieInput: UpdateMovieInput!): String!
 }
 
 type Query {

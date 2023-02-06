@@ -23,7 +23,7 @@ export class MoviesResolver {
     return this.moviesService.findOne(id);
   }
 
-  @Mutation(() => Movie)
+  @Mutation(() => String)
   updateMovie(@Args('updateMovieInput') updateMovieInput: UpdateMovieInput) {
     return this.moviesService.update(updateMovieInput.id, updateMovieInput);
   }

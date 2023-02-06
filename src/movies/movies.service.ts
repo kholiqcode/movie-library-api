@@ -37,8 +37,23 @@ export class MoviesService {
     });
   }
 
-  update(id: number, updateMovieInput: UpdateMovieInput) {
-    return `This action updates a #${id} movie`;
+  async update(id: number, updateMovieInput: UpdateMovieInput) {
+    const movie: Movie = await this.movieRepo.findOne({
+      where: { id },
+    });
+    movie.title = updateMovieInput.title;
+    movie.year = updateMovieInput.year;
+    movie.genre = updateMovieInput.genre?.join(', ');
+    movie.director = updateMovieInput.director;
+    movie.runtime = updateMovieInput.runtime;
+    movie.country = updateMovieInput.country;
+    movie.rating = updateMovieInput.rating;
+    movie.votes = updateMovieInput.votes;
+    movie.sub = updateMovieInput.sub;
+    movie.quality = updateMovieInput.quality;
+    movie.authorId = updateMovieInput.authorId;
+    await movie.save();
+    return 'Movie updated successfully';
   }
 
   remove(id: number) {
