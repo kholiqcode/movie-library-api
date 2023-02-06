@@ -2,7 +2,7 @@ import { Field, InputType } from '@nestjs/graphql';
 
 @InputType()
 export class CreateActorInput {
-  @Field()
+  @Field(() => String)
   name: string;
 
   @Field(() => String, { nullable: true })

@@ -8,7 +8,7 @@ import { UpdateActorInput } from './dto/update-actor.input';
 export class ActorsResolver {
   constructor(private readonly actorsService: ActorsService) {}
 
-  @Mutation(() => Actor)
+  @Mutation(() => String)
   createActor(@Args('createActorInput') createActorInput: CreateActorInput) {
     return this.actorsService.create(createActorInput);
   }
@@ -23,12 +23,12 @@ export class ActorsResolver {
     return this.actorsService.findOne(id);
   }
 
-  @Mutation(() => Actor)
+  @Mutation(() => String)
   updateActor(@Args('updateActorInput') updateActorInput: UpdateActorInput) {
     return this.actorsService.update(updateActorInput.id, updateActorInput);
   }
 
-  @Mutation(() => Actor)
+  @Mutation(() => String)
   removeActor(@Args('id', { type: () => Int }) id: number) {
     return this.actorsService.remove(id);
   }

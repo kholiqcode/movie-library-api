@@ -10,7 +10,6 @@ import {
   Table,
 } from 'sequelize-typescript';
 import { MovieDetail } from 'src/movie-detail/movie-detail.model';
-import { Movie } from 'src/movies/movies.model';
 
 @Table({ tableName: 'actors' })
 @ObjectType()
@@ -18,12 +17,12 @@ export class Actor extends Model {
   @PrimaryKey
   @AutoIncrement
   @Column
-  @Field((type) => Int)
-  id: number;
+  @Field((type) => Int, { nullable: true })
+  id?: number;
 
   @Column
-  @Field(() => String)
-  name: string;
+  @Field(() => String, { nullable: true })
+  name?: string;
 
   @Column(DataType.DATEONLY)
   @Field(() => String)

@@ -8,11 +8,12 @@ import { UpdateActorInput } from './dto/update-actor.input';
 export class ActorsService {
   constructor(@InjectModel(Actor) private actorRepo: typeof Actor) {}
 
-  create(createActorInput: CreateActorInput) {
+  async create(createActorInput: CreateActorInput): Promise<string> {
     const actor: Actor = new Actor();
     actor.name = createActorInput.name;
     actor.birthDate = createActorInput.birthDate;
-    return actor.save();
+    await actor.save();
+    return 'Actor created successfully';
   }
 
   findAll(): Promise<Actor[]> {
@@ -27,16 +28,26 @@ export class ActorsService {
     });
   }
 
-  async update(id: number, updateActorInput: UpdateActorInput): Promise<Actor> {
+  async update(
+    id: number,
+    updateActorInput: UpdateActorInput,
+  ): Promise<string> {
     const actor: Actor = await this.actorRepo.findOne({
       where: { id },
     });
     actor.name = updateActorInput.name;
     actor.birthDate = updateActorInput.birthDate;
-    return await actor.save();
+    await actor.save();
+    return 'Actor updated successfully';
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} actor`;
+  async remove(id: number): Promise<string> {
+    await this.actorRepo.destroy({
+      where: {
+        id,
+      },
+    });
+
+    return 'Actor deleted successfully';
   }
 }

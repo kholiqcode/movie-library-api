@@ -5,9 +5,9 @@
 type Actor {
   birthDate: String!
   createdAt: String!
-  id: Int!
+  id: Int
   movies: MovieDetail
-  name: String!
+  name: String
   updatedAt: String!
 }
 
@@ -61,13 +61,13 @@ type MovieDetail {
 }
 
 type Mutation {
-  createActor(createActorInput: CreateActorInput!): Actor!
+  createActor(createActorInput: CreateActorInput!): String!
   createAuthor(createAuthorInput: CreateAuthorInput!): Author!
   createMovie(createMovieInput: CreateMovieInput!): Movie!
-  removeActor(id: Int!): Actor!
+  removeActor(id: Int!): String!
   removeAuthor(id: Int!): Author!
   removeMovie(id: Int!): Movie!
-  updateActor(updateActorInput: UpdateActorInput!): Actor!
+  updateActor(updateActorInput: UpdateActorInput!): String!
   updateAuthor(updateAuthorInput: UpdateAuthorInput!): Author!
   updateMovie(updateMovieInput: UpdateMovieInput!): Movie!
 }
